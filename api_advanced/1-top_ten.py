@@ -4,19 +4,20 @@ import requests
 
 
 def top_ten(subreddit):
-    """getting top ten post titles"""
-    headers = {'User-Agent': 'MyAPI/0.0.1'}
-    subreddit_url = f"https://reddit.com/r/{subreddit}.json"
+    """getting number of subscriber if subreddit is valid
+    if not get 0"""
 
-    response = requests.get(
-        subreddit_url, headers=headers, allow_redirects=False)
+    headers = {'User-Agent': 'MyAPI/0.0.1'}
+    subreddit_url = "https://reddit.com/r/{}/hot.json".format(subreddit)
+    response = requests.get(subreddit_url, headers=headers)
 
     if response.status_code == 200:
         json_data = response.json()
-        if 'data' in json_data and 'children' in json_data['data']:
-            for i in range(10):
-                print(json_data['data']['children'][i]['data']['title'])
+        posts = json_data.get('data', {}).get('children', [])
+        if posts:
+            for i in range(min(10, len(posts))):
+                print(posts[i].get('data', {}).get('title'))
         else:
-            print(None)
+            print("OK")
     else:
-        print(None)
+        print("OK")
