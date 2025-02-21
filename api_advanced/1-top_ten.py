@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-""" this will query the API for reddit """
+""" this will query the
+API for reddit """
 import requests
 
 
