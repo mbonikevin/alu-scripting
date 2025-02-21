@@ -1,4 +1,13 @@
 #!/usr/bin/python3
+"""
+    Queries the Reddit API and prints the titles of the first 10 hot posts.
+
+    Args:
+        subreddit (str): The name of the subreddit to query.
+
+    Returns:
+        None: Prints the top 10 hot post titles or None if the subreddit is invalid.
+    """
 import requests
 
 
