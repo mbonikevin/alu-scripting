@@ -4,8 +4,7 @@ import requests
 
 
 def top_ten(subreddit):
-    """ Getting top ten post titles """
-
+    """getting top ten post titles"""
     headers = {'User-Agent': 'MyAPI/0.0.1'}
     subreddit_url = f"https://reddit.com/r/{subreddit}.json"
 
