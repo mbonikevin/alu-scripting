@@ -14,7 +14,6 @@ def top_ten(subreddit):
 
     if response.status_code == 200:
         json_data = response.json()
-        # Check if the 'children' key exists
         if 'data' in json_data and 'children' in json_data['data']:
             for i in range(10):
                 print(json_data['data']['children'][i]['data']['title'])
