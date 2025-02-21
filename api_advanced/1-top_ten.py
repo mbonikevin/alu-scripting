@@ -1,11 +1,17 @@
 #!/usr/bin/python3
-""" this will query the
-API for reddit """
 import requests
 
 
 def top_ten(subreddit):
-    """queries the Reddit API and prints the titles of the first 10 hot posts"""
+    """
+    Queries the Reddit API and prints the titles of the first 10 hot posts.
+
+    Args:
+        subreddit (str): The name of the subreddit to query.
+
+    Returns:
+        None: Prints the top 10 hot post titles or None if the subreddit is invalid.
+    """
     url = f"https://www.reddit.com/r/{subreddit}/hot.json"
     headers = {
         'User-Agent': 'python:top_ten_script:v1.0 (by /u/Separate-Lion-614)'
